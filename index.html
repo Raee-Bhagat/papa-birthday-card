@@ -1,93 +1,174 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Papa</title>
-  <style>
-    body {
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background: linear-gradient(#ffe6f0, #fff);
-      text-align: center;
-      padding: 28px 14px;
-    }
-    h2 { margin-bottom: 16px; }
-    input, button {
-      padding: 12px 12px;
-      font-size: 16px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
-      max-width: 92%;
-    }
-    button {
-      background: #ff7aa2;
-      color: white;
-      border: none;
-      margin-left: 6px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-    .card {
-      display: none;
-      background: white;
-      border-radius: 22px;
-      padding: 22px;
-      margin: 18px auto 0;
-      max-width: 520px;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-      animation: fadeIn 0.8s ease;
-      text-align: left;
-      line-height: 1.45;
-    }
-    .title {
-      text-align: center;
-      margin-top: 0;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(6px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    .hint { font-size: 13px; opacity: 0.8; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Papa</title>
+
+<style>
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(#ffe6f0, #fff);
+  text-align: center;
+  padding: 28px 14px;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-family: cursive;
+  margin-bottom: 18px;
+}
+
+input, button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  max-width: 92%;
+}
+
+button {
+  background: #ff7aa2;
+  color: white;
+  border: none;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.card {
+  display: none;
+  background: white;
+  border-radius: 26px;
+  padding: 26px;
+  margin: 22px auto 0;
+  max-width: 540px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
+  text-align: left;
+  line-height: 1.6;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-family: cursive;
+}
+
+.hint {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-top: 14px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💕 Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* ✨ Sparkles */
+.sparkle {
+  position: fixed;
+  font-size: 14px;
+  animation: sparkle 1.5s ease-out forwards;
+}
+
+@keyframes sparkle {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(2); }
+}
+</style>
 </head>
 
 <body>
 
 <h2>🎂 Open your birthday surprise 🎂</h2>
 
-<input type="text" id="name" placeholder="Enter Papa’s name (e.g., Sandeep)" />
-<br />
+<input type="text" id="name" value="Sandeep">
+<br>
 <button onclick="showCard()">Open Card 💖</button>
+
+<!-- 🎶 Soft Happy Birthday Music -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_0eaf8b6c98.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card" id="birthdayCard">
   <h3 class="title">Happy Birthday, Papa <span id="papaName"></span> 🎉💖</h3>
 
   <p>
     Hi Papa!<br>
-    It’s me — your tiny baby girl doing somersaults in Mommy’s tummy 🤭<br>
+    It’s me — your tiny baby girl <b>Sara</b> doing somersaults in Mommy’s tummy 🤭<br>
     I’m still growing, but I already know your voice, your love, and your big heart.<br><br>
 
-    Mommy says you’re the best, so I chose you to be my papa 💕<br>
+    Mommy <b>Raee</b> says you’re the best, so I chose you to be my papa 💕<br>
     I can’t wait for your cuddles, your silly talks, and the way you’ll protect me forever.<br><br>
 
     Thank you for loving Mommy so much — that’s my favorite part.<br>
     I’ll be in your arms very soon… but for now, happy birthday to my superhero 🦸‍♂️<br><br>
 
     I love you already.<br>
-    Your little girl 💖✨
+    Love,<br>
+    Your little girl <b>Sara</b> 💖✨
   </p>
 
-  <p class="hint">Tip: take a screenshot after it pops up 💗</p>
+  <p class="hint">Tip: take a screenshot after it pops up 💕</p>
 </div>
 
 <script>
-  function showCard() {
-    const name = document.getElementById("name").value.trim();
-    document.getElementById("papaName").innerText = name ? name : "";
-    document.getElementById("birthdayCard").style.display = "block";
-    document.getElementById("birthdayCard").scrollIntoView({behavior: "smooth"});
+function showCard() {
+  const name = document.getElementById("name").value.trim();
+  document.getElementById("papaName").innerText = name;
+  document.getElementById("birthdayCard").style.display = "block";
+  document.getElementById("birthdayCard").scrollIntoView({behavior: "smooth"});
+
+  // 🎶 Play music (iPhone-safe)
+  const music = document.getElementById("bgMusic");
+  music.play().catch(() => {});
+
+  startHearts();
+  sparkleBurst();
+}
+
+// 💕 Hearts animation
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 600);
+}
+
+// ✨ Sparkles on open
+function sparkleBurst() {
+  for (let i = 0; i < 20; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.innerText = "✨";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1500);
   }
+}
 </script>
 
 </body>
