@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Papa</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: linear-gradient(#ffe6f0, #fff);
+      text-align: center;
+      padding: 28px 14px;
+    }
+    h2 { margin-bottom: 16px; }
+    input, button {
+      padding: 12px 12px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      max-width: 92%;
+    }
+    button {
+      background: #ff7aa2;
+      color: white;
+      border: none;
+      margin-left: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .card {
+      display: none;
+      background: white;
+      border-radius: 22px;
+      padding: 22px;
+      margin: 18px auto 0;
+      max-width: 520px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      animation: fadeIn 0.8s ease;
+      text-align: left;
+      line-height: 1.45;
+    }
+    .title {
+      text-align: center;
+      margin-top: 0;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(6px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .hint { font-size: 13px; opacity: 0.8; margin-top: 10px; }
+  </style>
+</head>
+
+<body>
+
+<h2>🎂 Open your birthday surprise 🎂</h2>
+
+<input type="text" id="name" placeholder="Enter Papa’s name (e.g., Sandeep)" />
+<br />
+<button onclick="showCard()">Open Card 💖</button>
+
+<div class="card" id="birthdayCard">
+  <h3 class="title">Happy Birthday, Papa <span id="papaName"></span> 🎉💖</h3>
+
+  <p>
+    Hi Papa!<br>
+    It’s me — your tiny baby girl doing somersaults in Mommy’s tummy 🤭<br>
+    I’m still growing, but I already know your voice, your love, and your big heart.<br><br>
+
+    Mommy says you’re the best, so I chose you to be my papa 💕<br>
+    I can’t wait for your cuddles, your silly talks, and the way you’ll protect me forever.<br><br>
+
+    Thank you for loving Mommy so much — that’s my favorite part.<br>
+    I’ll be in your arms very soon… but for now, happy birthday to my superhero 🦸‍♂️<br><br>
+
+    I love you already.<br>
+    Your little girl 💖✨
+  </p>
+
+  <p class="hint">Tip: take a screenshot after it pops up 💗</p>
+</div>
+
+<script>
+  function showCard() {
+    const name = document.getElementById("name").value.trim();
+    document.getElementById("papaName").innerText = name ? name : "";
+    document.getElementById("birthdayCard").style.display = "block";
+    document.getElementById("birthdayCard").scrollIntoView({behavior: "smooth"});
+  }
+</script>
+
+</body>
+</html>
